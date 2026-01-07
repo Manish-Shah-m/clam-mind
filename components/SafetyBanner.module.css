@@ -1,8 +1,9 @@
 .banner {
-  background-color: var(--safe);
-  color: var(--bg-card);
-  padding: var(--spacing-sm) 0;
+  background: linear-gradient(135deg, var(--accent-calm) 0%, var(--safe) 100%);
+  color: white;
+  padding: var(--spacing-md) 0;
   font-size: 0.9375rem;
+  box-shadow: var(--shadow-sm);
 }
 
 .content {
@@ -17,26 +18,32 @@
 
 .text {
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .text strong {
-  font-weight: 600;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 2px;
 }
 
 .closeButton {
-  background: none;
-  border: none;
-  color: var(--bg-card);
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
   font-size: 1.25rem;
   cursor: pointer;
-  padding: 0 var(--spacing-xs);
-  opacity: 0.8;
-  transition: var(--transition);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 6px;
+  transition: var(--transition-fast);
+  font-weight: bold;
 }
 
 .closeButton:hover {
-  opacity: 1;
+  background: rgba(255, 255, 255, 0.3);
+  border-color: white;
+  transform: scale(1.05);
 }
 
 @media (max-width: 768px) {

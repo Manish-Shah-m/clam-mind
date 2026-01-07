@@ -1,12 +1,18 @@
 .header {
-  background-color: var(--bg-card);
-  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-light);
   padding: var(--spacing-md) 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(8px);
-  background-color: rgba(255, 255, 255, 0.95);
+  transition: var(--transition);
+}
+
+.header.scrolled {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: var(--shadow-sm);
+  padding: var(--spacing-sm) 0;
 }
 
 .container {
@@ -19,25 +25,38 @@
 }
 
 .logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
   font-family: var(--font-heading);
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   color: var(--text-primary);
   text-decoration: none;
-  transition: var(--transition);
+  transition: var(--transition-fast);
+}
+
+.logoIcon {
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
 }
 
 .logo:hover {
   color: var(--accent-calm);
   text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .menuButton {
   display: none;
+  flex-direction: column;
+  gap: 5px;
   background: none;
   border: none;
   padding: var(--spacing-xs);
   cursor: pointer;
+  z-index: 101;
 }
 
 .menuIcon {
@@ -45,30 +64,24 @@
   width: 24px;
   height: 2px;
   background-color: var(--text-primary);
-  position: relative;
   transition: var(--transition);
+  border-radius: 2px;
 }
 
-.menuIcon::before,
-.menuIcon::after {
-  content: '';
-  position: absolute;
-  width: 24px;
-  height: 2px;
-  background-color: var(--text-primary);
-  transition: var(--transition);
+.menuButton.menuOpen .menuIcon:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
 }
 
-.menuIcon::before {
-  top: -7px;
+.menuButton.menuOpen .menuIcon:nth-child(2) {
+  opacity: 0;
 }
 
-.menuIcon::after {
-  bottom: -7px;
+.menuButton.menuOpen .menuIcon:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
   .menuButton {
-    display: block;
+    display: flex;
   }
 }
