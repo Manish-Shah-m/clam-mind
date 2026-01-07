@@ -50,24 +50,39 @@ export default function MoodTrackerPage() {
 
       <ContentSection variant="alternate">
         <MoodSelector selectedMood={selectedMood} onSelect={setSelectedMood} />
-        <QuietButton 
-          onClick={handleSave} 
-          variant="primary" 
-          disabled={!selectedMood}
-        >
-          {saved ? 'Saved ✓' : 'Save Today\'s Mood'}
-        </QuietButton>
+        
+        <div className={styles.buttonContainer}>
+          <QuietButton 
+            onClick={handleSave} 
+            variant="primary" 
+            disabled={!selectedMood}
+            fullWidth={false}
+          >
+            {saved ? 'Saved ✓' : 'Save Today\'s Mood'}
+          </QuietButton>
+        </div>
       </ContentSection>
 
       {moodHistory.length > 0 && (
         <ContentSection title="Your Mood History">
+          <p className={styles.historyIntro}>
+            You've tracked your mood {moodHistory.length} {moodHistory.length === 1 ? 'time' : 'times'}.
+          </p>
           <div className={styles.history}>
             {moodHistory.slice(0, 30).map((entry, index) => (
               <div key={index} className={styles.entry}>
-                <span className={styles.date}>
-                  {new Date(entry.date).toLocaleDateString()}
-                </span>
-                <span className={styles.mood}>{entry.mood}</span>
+                <div className={styles.entryDate}>
+                  {new Date(entry.date).toLocaleDateString('en-US', {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </div>
+                <div className={styles.entryMood}>
+                  <span className={styles.moodBadge} data-mood={entry.mood}>
+                    {entry.mood}
+                  </span>
+                </div>
               </div>
             ))}
           </div>

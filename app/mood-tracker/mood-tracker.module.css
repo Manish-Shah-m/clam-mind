@@ -1,25 +1,101 @@
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--spacing-lg);
+}
+
+.historyIntro {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-bottom: var(--spacing-lg);
+  text-align: center;
+}
+
 .history {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--spacing-sm);
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .entry {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-sm);
-  background-color: var(--bg-card);
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: var(--spacing-md);
+  align-items: center;
+  padding: var(--spacing-md);
+  background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 4px;
+  border-radius: 8px;
+  transition: var(--transition-fast);
 }
 
-.date {
+.entry:hover {
+  border-color: var(--accent-calm);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.entryDate {
   color: var(--text-secondary);
   font-size: 0.9375rem;
+  font-weight: 500;
 }
 
-.mood {
-  color: var(--text-primary);
-  font-weight: 500;
+.entryMood {
+  display: flex;
+  align-items: center;
+}
+
+.moodBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
   text-transform: capitalize;
+  border: 2px solid;
+  transition: var(--transition-fast);
+}
+
+.moodBadge[data-mood="peaceful"] {
+  background: rgba(90, 140, 111, 0.1);
+  color: #5a8c6f;
+  border-color: #5a8c6f;
+}
+
+.moodBadge[data-mood="okay"] {
+  background: rgba(122, 157, 138, 0.1);
+  color: #7a9d8a;
+  border-color: #7a9d8a;
+}
+
+.moodBadge[data-mood="low"] {
+  background: rgba(168, 147, 132, 0.1);
+  color: #a89384;
+  border-color: #a89384;
+}
+
+.moodBadge[data-mood="heavy"] {
+  background: rgba(184, 149, 111, 0.1);
+  color: #b8956f;
+  border-color: #b8956f;
+}
+
+.moodBadge[data-mood="numb"] {
+  background: rgba(107, 99, 91, 0.1);
+  color: #6b635b;
+  border-color: #6b635b;
+}
+
+@media (max-width: 640px) {
+  .entry {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xs);
+  }
+
+  .entryDate {
+    font-size: 0.875rem;
+  }
 }
