@@ -2,9 +2,13 @@
    HERO SECTION - Premium Design
    ============================================ */
 
+/* ============================================
+   HERO SECTION - Optimized Spacing
+   ============================================ */
+
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 85vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,6 +19,7 @@
     #f5f1eb 50%,
     #faf8f5 100%
   );
+  padding-top: 0;
 }
 
 /* Animated Background Orbs */
@@ -33,6 +38,7 @@
   filter: blur(80px);
   animation: float 20s infinite ease-in-out;
 }
+
 .gradientOrb1 {
   width: 600px;
   height: 600px;
@@ -73,12 +79,12 @@
   }
 }
 
-/* Hero Content */
+/* Hero Content - Reduced Padding */
 .heroContent {
   position: relative;
   z-index: 10;
   width: 100%;
-  padding: var(--spacing-xxl) var(--spacing-md);
+  padding: var(--spacing-lg) var(--spacing-md) var(--spacing-xxl);
 }
 
 .heroContainer {
@@ -87,18 +93,18 @@
   text-align: center;
 }
 
-/* Badge */
+/* Badge - Reduced Bottom Margin */
 .heroBadge {
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-xs);
   padding: var(--spacing-xs) var(--spacing-md);
-  background: rgba(155, 168, 159, 0.1);
-  border: 1px solid rgba(155, 168, 159, 0.3);
+  background: rgba(122, 157, 138, 0.12);
+  border: 1px solid rgba(122, 157, 138, 0.25);
   border-radius: 100px;
   font-size: 0.875rem;
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md); /* Reduced from var(--spacing-lg) */
   backdrop-filter: blur(10px);
   animation: fadeInDown 0.6s ease-out;
 }
@@ -120,13 +126,13 @@
   }
 }
 
-/* Main Title */
+/* Main Title - Reduced Bottom Margin */
 .heroTitle {
-  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  font-size: clamp(2.5rem, 7vw, 5rem);
   font-weight: 300;
-  line-height: 1.1;
+  line-height: 1.15;
   color: var(--text-primary);
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: var(--spacing-md); /* Reduced from var(--spacing-lg) */
   font-family: var(--font-heading);
   animation: fadeInUp 0.8s ease-out 0.2s both;
 }
@@ -152,49 +158,49 @@
   opacity: 0.3;
 }
 
-/* Subtitle */
+/* Subtitle - Reduced Margins */
 .heroSubtitle {
-  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
   line-height: 1.7;
   color: var(--text-secondary);
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg); /* Reduced from var(--spacing-xl) */
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
   animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
-/* CTA Buttons */
+/* CTA Buttons - Reduced Bottom Margin */
 .heroActions {
   display: flex;
   gap: var(--spacing-md);
   justify-content: center;
   flex-wrap: wrap;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg); /* Reduced from var(--spacing-xl) */
   animation: fadeInUp 0.8s ease-out 0.6s both;
 }
 
 .heroCta {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: 1rem 2rem;
+  gap: var(--spacing-xs);
+  padding: 0.875rem 1.75rem;
   background: var(--accent-calm);
   color: var(--bg-card);
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  font-size: 1.0625rem;
+  font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: 2px solid var(--accent-calm);
-  box-shadow: 0 4px 12px rgba(155, 168, 159, 0.3);
+  box-shadow: 0 4px 12px rgba(90, 140, 111, 0.25);
 }
 
 .heroCta:hover {
   background: var(--text-primary);
   border-color: var(--text-primary);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(74, 69, 64, 0.25);
+  box-shadow: 0 8px 24px rgba(45, 42, 38, 0.2);
   text-decoration: none;
 }
 
@@ -209,16 +215,16 @@
 .heroCtaSecondary {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-sm);
-  padding: 1rem 2rem;
+  gap: var(--spacing-xs);
+  padding: 0.875rem 1.75rem;
   background: rgba(255, 255, 255, 0.8);
   color: var(--text-primary);
   text-decoration: none;
   border-radius: 8px;
-  font-weight: 500;
-  font-size: 1.0625rem;
+  font-weight: 600;
+  font-size: 1rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid rgba(155, 168, 159, 0.3);
+  border: 2px solid var(--border);
   backdrop-filter: blur(10px);
 }
 
@@ -233,7 +239,7 @@
 /* Trust Indicators */
 .heroTrust {
   display: flex;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
   justify-content: center;
   flex-wrap: wrap;
   animation: fadeInUp 0.8s ease-out 0.8s both;
@@ -245,6 +251,7 @@
   gap: var(--spacing-xs);
   font-size: 0.9375rem;
   color: var(--text-secondary);
+  font-weight: 500;
 }
 
 .trustItem svg {
@@ -326,6 +333,150 @@
     opacity: 1;
   }
 }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 80vh;
+  }
+
+  .heroContent {
+    padding: var(--spacing-md) var(--spacing-md) var(--spacing-xl);
+  }
+
+  .heroActions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .heroCta,
+  .heroCtaSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .heroTrust {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    align-items: center;
+  }
+
+  .gradientOrb1,
+  .gradientOrb2,
+  .gradientOrb3 {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroBadge {
+    font-size: 0.8125rem;
+  }
+
+  .heroTitle {
+    font-size: 2.25rem;
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .gradientOrb1,
+  .gradientOrb2,
+  .gradientOrb3 {
+    animation: none;
+  }
+
+  .heroBadge,
+  .heroTitle,
+  .heroSubtitle,
+  .heroActions,
+  .heroTrust,
+  .scrollIndicator {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .scrollDot::before {
+    animation: none;
+  }
+
+  .badgeDot {
+    animation: none;
+  }
+
+  .heroCta:hover,
+  .heroCtaSecondary:hover {
+    transform: none;
+  }
+
+  .heroCta:hover svg {
+    transform: none;
+  }
+}
+/* Animated Background Orbs */
+.heroBackground {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0.6;
+}
+
+.gradientOrb1,
+.gradientOrb2,
+.gradientOrb3 {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: float 20s infinite ease-in-out;
+}
+.gradientOrb1 {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(122, 157, 138, 0.25), transparent);
+  top: -10%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+.gradientOrb2 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(184, 149, 111, 0.2), transparent);
+  bottom: -15%;
+  right: -5%;
+  animation-delay: 7s;
+}
+
+.gradientOrb3 {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(157, 143, 168, 0.18), transparent);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: 14s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
 
 /* ============================================
    STATS SECTION
