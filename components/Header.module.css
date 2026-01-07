@@ -1,18 +1,20 @@
 .header {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-light);
-  padding: var(--spacing-md) 0;
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  padding: 1.125rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header.scrolled {
   background: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--shadow-sm);
-  padding: var(--spacing-sm) 0;
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+  padding: 0.875rem 0;
 }
 
 .container {
@@ -25,63 +27,67 @@
 }
 
 .logo {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
   font-family: var(--font-heading);
   font-size: 1.5rem;
   font-weight: 500;
   color: var(--text-primary);
   text-decoration: none;
+  letter-spacing: -0.02em;
   transition: var(--transition-fast);
-}
-
-.logoIcon {
-  font-size: 1.75rem;
-  display: flex;
-  align-items: center;
 }
 
 .logo:hover {
   color: var(--accent-calm);
   text-decoration: none;
-  transform: translateY(-1px);
 }
 
 .menuButton {
   display: none;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
+  width: 32px;
+  height: 32px;
   background: none;
   border: none;
-  padding: var(--spacing-xs);
+  padding: 0;
   cursor: pointer;
+  position: relative;
   z-index: 101;
 }
 
-.menuIcon {
+.menuButton span {
   display: block;
   width: 24px;
   height: 2px;
   background-color: var(--text-primary);
-  transition: var(--transition);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 2px;
 }
 
-.menuButton.menuOpen .menuIcon:nth-child(1) {
+.menuButton.menuOpen span:nth-child(1) {
   transform: translateY(7px) rotate(45deg);
 }
 
-.menuButton.menuOpen .menuIcon:nth-child(2) {
+.menuButton.menuOpen span:nth-child(2) {
   opacity: 0;
+  transform: translateX(-10px);
 }
 
-.menuButton.menuOpen .menuIcon:nth-child(3) {
+.menuButton.menuOpen span:nth-child(3) {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .menuButton {
     display: flex;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .logo,
+  .menuButton span {
+    transition: none;
   }
 }

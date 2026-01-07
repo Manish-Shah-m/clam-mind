@@ -11,18 +11,30 @@ export default function Header() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 10);
     };
+    
+    handleScroll();
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [menuOpen]);
+
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
-          <span className={styles.logoIcon}>🌿</span>
-          <span className={styles.logoText}>Calm Mind</span>
+        <Link href="/" className={styles.logo} onClick={() => setMenuOpen(false)}>
+          Calm Mind
         </Link>
         
         <button
@@ -31,9 +43,9 @@ export default function Header() {
           aria-label="Toggle menu"
           aria-expanded={menuOpen}
         >
-          <span className={styles.menuIcon}></span>
-          <span className={styles.menuIcon}></span>
-          <span className={styles.menuIcon}></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
         
         <Navigation isOpen={menuOpen} onClose={() => setMenuOpen(false)} />

@@ -5,16 +5,14 @@ import { usePathname } from 'next/navigation';
 import styles from './Navigation.module.css';
 
 const links = [
+  { href: '/', label: 'Home' },
   { href: '/understanding', label: 'Understanding' },
   { href: '/depression-vs', label: 'Comparisons' },
-  { href: '/misconceptions', label: 'Misconceptions' },
-  { href: '/support-others', label: 'Support Others' },
+  { href: '/support-others', label: 'Support' },
   { href: '/reflect', label: 'Reflect' },
   { href: '/mood-tracker', label: 'Mood' },
   { href: '/journal', label: 'Journal' },
-  { href: '/letters', label: 'Letters' },
-  { href: '/wellbeing', label: 'Well-Being' },
-  { href: '/community', label: 'Community' },
+  { href: '/wellbeing', label: 'Resources' },
 ];
 
 export default function Navigation({ isOpen, onClose }) {
