@@ -56,34 +56,33 @@
   font-weight: 600;
   text-transform: capitalize;
   border: 2px solid;
-  transition: var(--transition-fast);
 }
 
-.moodBadge[data-mood="peaceful"] {
+.moodBadge.peaceful {
   background: rgba(90, 140, 111, 0.1);
   color: #5a8c6f;
   border-color: #5a8c6f;
 }
 
-.moodBadge[data-mood="okay"] {
+.moodBadge.okay {
   background: rgba(122, 157, 138, 0.1);
   color: #7a9d8a;
   border-color: #7a9d8a;
 }
 
-.moodBadge[data-mood="low"] {
+.moodBadge.low {
   background: rgba(168, 147, 132, 0.1);
   color: #a89384;
   border-color: #a89384;
 }
 
-.moodBadge[data-mood="heavy"] {
+.moodBadge.heavy {
   background: rgba(184, 149, 111, 0.1);
   color: #b8956f;
   border-color: #b8956f;
 }
 
-.moodBadge[data-mood="numb"] {
+.moodBadge.numb {
   background: rgba(107, 99, 91, 0.1);
   color: #6b635b;
   border-color: #6b635b;

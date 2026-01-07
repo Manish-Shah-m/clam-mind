@@ -11,8 +11,10 @@ export default function MoodTrackerPage() {
   const [selectedMood, setSelectedMood] = useState(null);
   const [moodHistory, setMoodHistory] = useState([]);
   const [saved, setSaved] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const history = loadFromStorage('moodHistory');
     if (history) setMoodHistory(history);
   }, []);
@@ -36,6 +38,10 @@ export default function MoodTrackerPage() {
     }, 2000);
   };
 
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <>
       <ContentSection title="Mood Tracker">
@@ -56,7 +62,6 @@ export default function MoodTrackerPage() {
             onClick={handleSave} 
             variant="primary" 
             disabled={!selectedMood}
-            fullWidth={false}
           >
             {saved ? 'Saved ✓' : 'Save Today\'s Mood'}
           </QuietButton>
@@ -79,7 +84,7 @@ export default function MoodTrackerPage() {
                   })}
                 </div>
                 <div className={styles.entryMood}>
-                  <span className={styles.moodBadge} data-mood={entry.mood}>
+                  <span className={`${styles.moodBadge} ${styles[entry.mood]}`}>
                     {entry.mood}
                   </span>
                 </div>

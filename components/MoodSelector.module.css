@@ -45,41 +45,21 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   text-align: left;
-  overflow: hidden;
-}
-
-.moodCard::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: var(--mood-color);
-  opacity: var(--mood-opacity);
-  transition: opacity 0.3s ease;
-  pointer-events: none;
+  font-family: inherit;
 }
 
 .moodCard:hover {
-  border-color: var(--mood-color);
+  border-color: var(--accent-calm);
   transform: translateY(-4px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 
-.moodCard:hover::before {
-  opacity: 0.12;
-}
-
 .moodCard.selected {
-  border-color: var(--mood-color);
+  border-color: var(--accent-calm);
   border-width: 3px;
   padding: calc(var(--spacing-lg) - 1px);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-}
-
-.moodCard.selected::before {
-  opacity: 0.15;
+  background: linear-gradient(135deg, rgba(90, 140, 111, 0.05) 0%, transparent 100%);
 }
 
 /* Mood Indicator */
@@ -92,7 +72,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background: var(--mood-color);
   opacity: 0.15;
   transition: all 0.3s ease;
 }
@@ -111,12 +90,13 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: var(--mood-color);
+  background: white;
+  opacity: 0;
   transition: all 0.3s ease;
 }
 
 .moodCard.selected .moodDot {
-  background: white;
+  opacity: 1;
 }
 
 /* Mood Content */
@@ -125,7 +105,6 @@
   flex-direction: column;
   gap: 4px;
   flex: 1;
-  position: relative;
 }
 
 .moodLabel {
@@ -144,39 +123,23 @@
 /* Checkmark */
 .checkmark {
   flex-shrink: 0;
-  color: var(--mood-color);
-  opacity: 0;
-  transform: scale(0.8);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--accent-calm);
+  animation: scaleIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.moodCard.selected .checkmark {
-  opacity: 1;
-  transform: scale(1);
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .checkmark svg {
   display: block;
-}
-
-/* Selected Info */
-.selectedInfo {
-  text-align: center;
-  padding: var(--spacing-md);
-  background: var(--bg-secondary);
-  border-radius: 8px;
-  border: 1px solid var(--border);
-}
-
-.selectedInfo p {
-  margin: 0;
-  font-size: 0.9375rem;
-  color: var(--text-secondary);
-}
-
-.selectedInfo strong {
-  color: var(--text-primary);
-  font-weight: 600;
 }
 
 /* Responsive */
@@ -197,6 +160,10 @@
     padding: var(--spacing-md);
   }
 
+  .moodCard.selected {
+    padding: calc(var(--spacing-md) - 1px);
+  }
+
   .moodIndicator {
     width: 40px;
     height: 40px;
@@ -215,6 +182,7 @@
   .moodDot,
   .checkmark {
     transition: none;
+    animation: none;
   }
 
   .moodCard:hover {
