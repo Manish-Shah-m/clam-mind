@@ -1,0 +1,51 @@
+.banner {
+  background-color: var(--safe);
+  color: var(--bg-card);
+  padding: var(--spacing-sm) 0;
+  font-size: 0.9375rem;
+}
+
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.text {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.text strong {
+  font-weight: 600;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  color: var(--bg-card);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0 var(--spacing-xs);
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.closeButton:hover {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .closeButton {
+    align-self: flex-end;
+  }
+}

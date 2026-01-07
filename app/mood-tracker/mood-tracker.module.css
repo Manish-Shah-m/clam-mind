@@ -1,0 +1,25 @@
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.entry {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-sm);
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.date {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+}
+
+.mood {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-transform: capitalize;
+}

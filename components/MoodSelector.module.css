@@ -1,0 +1,44 @@
+.container {
+  margin-bottom: var(--spacing-lg);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.moodGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: var(--spacing-sm);
+}
+
+.moodButton {
+  background-color: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: var(--spacing-md) var(--spacing-sm);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.moodButton:hover {
+  border-color: var(--mood-color);
+  background-color: var(--bg-primary);
+}
+
+.moodButton.selected {
+  border-color: var(--mood-color);
+  background-color: var(--mood-color);
+  color: var(--bg-card);
+}
+
+.moodButton:focus-visible {
+  outline: 2px solid var(--mood-color);
+  outline-offset: 2px;
+}

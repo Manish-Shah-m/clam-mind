@@ -1,0 +1,30 @@
+{
+  "site": {
+    "name": "Calm Mind",
+    "tagline": "A gentle space for emotional well-being",
+    "description": "Understanding, reflection, and support for your mental health journey"
+  },
+  "crisisHelplines": {
+    "us": {
+      "name": "988 Suicide & Crisis Lifeline",
+      "phone": "988",
+      "available": "24/7"
+    },
+    "uk": {
+      "name": "Samaritans",
+      "phone": "116 123",
+      "available": "24/7"
+    },
+    "international": {
+      "name": "Find A Helpline",
+      "url": "https://findahelpline.com"
+    }
+  },
+  "affirmations": [
+    "You are allowed to take up space",
+    "Rest is not weakness",
+    "Your feelings are valid",
+    "Healing is not linear",
+    "You don't have to earn your worth"
+  ]
+}
